@@ -3,6 +3,9 @@
 [![made-with-python](http://forthebadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![built-with-love](http://forthebadge.com/images/badges/built-with-love.svg)](https://gitHub.com/t0thkr1s/)
 
+
+# this version simply changes the banner to not have it eat the screen space and copies the command to the clipboard using the termux-api
+
 Standalone script written in Python 3 for generating reverse shells easily without typing. 
 It automates the boring stuff like URL encoding the command and setting up a listener.
 

@@ -13,13 +13,8 @@ from colorama import Fore, Style
 from netifaces import *
 from pyperclip import copy
 
-banner = '''
-                         __         __   __                  
-  ____ ___  _  __  ___  / /  ___   / /  / /  ___ _ ___   ___ 
- / __// -_)| |/ / (_-< / _ \/ -_) / /  / /  / _ `// -_) / _ \\
-/_/   \__/ |___/ /___//_//_/\__/ /_/  /_/   \_, / \__/ /_//_/
-                                           /___/
-'''
+banner = '''REVSHELLGEN
+FOR TERMUX'''
 
 header = Template(
     '\n' + Style.BRIGHT + '---------- [ ' + Fore.CYAN + '$text' + Fore.RESET + ' ] ----------' + Style.RESET_ALL + '\n'
@@ -156,10 +151,8 @@ def build_command():
     print(header.safe_substitute(text='FINISHED COMMAND'))
     print(code.safe_substitute(code=command) + '\n')
 
-    if 'SSH_CLIENT' not in os.environ or 'SSH_TTY' not in os.environ:
-        copy(command)
-        print(info.safe_substitute(text='Reverse shell command copied to clipboard!'))
-
+    os.system(f'termux-clipboard-set "{command}"')
+    print('Copied command to clipboard')
     print(success.safe_substitute(text='In case you want to upgrade your shell, you can use this:\n'))
     print(code.safe_substitute(code="python -c 'import pty;pty.spawn(\"/bin/bash\")'"))
 
